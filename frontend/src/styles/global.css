@@ -1,0 +1,65 @@
+:root {
+  --primary-color: #42E2BB;
+  --primary-dark: #2BC4A3;
+  --primary-light: #7FF0D1;
+  --secondary-color: #2D3436;
+  --accent-color: #FF6B6B;
+  --background-light: #F8F9FA;
+  --text-primary: #2D3436;
+  --text-secondary: #636E72;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-light);
+  color: var(--text-primary);
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  color: white;
+  box-shadow: 0 4px 20px rgba(66, 226, 187, 0.2);
+}
+
+.feature-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.animated-button {
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(66, 226, 187, 0.3);
+}
+
+.animated-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(66, 226, 187, 0.4);
+} 
