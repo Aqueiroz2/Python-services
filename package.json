@@ -1,9 +1,0 @@
-{
-  "name": "python-services",
-  "version": "1.0.0",
-  "description": "Python Services Website",
-  "scripts": {
-    "start": "cd frontend && npm start",
-    "build": "cd frontend && npm install && npm run build"
-  }
-} 
