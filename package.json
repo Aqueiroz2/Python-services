@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "cd frontend && npm install && npm run build",
-    "start": "cd frontend && npm start"
+    "start": "cd frontend && npm start",
+    "vercel-build": "cd frontend && npm install && npm run build"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": "16.x"
   }
 } 
