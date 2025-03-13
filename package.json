@@ -2,13 +2,8 @@
   "name": "python-services",
   "version": "1.0.0",
   "description": "Python Services Website",
-  "main": "index.js",
   "scripts": {
-    "build": "cd frontend && npm install && npm run build",
     "start": "cd frontend && npm start",
-    "vercel-build": "cd frontend && npm install && npm run build"
-  },
-  "engines": {
-    "node": "16.x"
+    "build": "cd frontend && npm install && npm run build"
   }
 } 
