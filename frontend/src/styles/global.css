@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 :root {
   --primary-color: #42E2BB;
   --primary-dark: #2BC4A3;
@@ -7,17 +9,26 @@
   --background-light: #F8F9FA;
   --text-primary: #2D3436;
   --text-secondary: #636E72;
+  --font-family: 'Inter', sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-light);
   color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+p, a, button, li, span {
+  font-family: var(--font-family);
 }
 
 .gradient-text {

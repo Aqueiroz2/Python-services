@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, Container, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
-import CodeIcon from '@mui/icons-material/Code';
+import BuildIcon from '@mui/icons-material/Build';
+import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
+import TerminalIcon from '@mui/icons-material/Terminal';
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -21,21 +23,21 @@ function Navbar() {
   };
 
   const drawer = (
-    <List>
+    <List sx={{ bgcolor: '#141414', height: '100%' }}>
       <ListItem button component={RouterLink} to="/" onClick={handleDrawerToggle}>
-        <ListItemText primary="Home" />
+        <ListItemText primary="Home" primaryTypographyProps={{ style: { color: 'white' } }} />
       </ListItem>
       <ListItem button component={RouterLink} to="/services" onClick={handleDrawerToggle}>
-        <ListItemText primary="Serviços" />
+        <ListItemText primary="Serviços" primaryTypographyProps={{ style: { color: 'white' } }} />
       </ListItem>
       <ListItem button component={RouterLink} to="/about" onClick={handleDrawerToggle}>
-        <ListItemText primary="Sobre Python" />
+        <ListItemText primary="Tecnologias" primaryTypographyProps={{ style: { color: 'white' } }} />
       </ListItem>
       <ListItem button component={RouterLink} to="/plans" onClick={handleDrawerToggle}>
-        <ListItemText primary="Planos" />
+        <ListItemText primary="Planos" primaryTypographyProps={{ style: { color: 'white' } }} />
       </ListItem>
       <ListItem button component={RouterLink} to="/login" onClick={handleDrawerToggle}>
-        <ListItemText primary="Login" />
+        <ListItemText primary="Login" primaryTypographyProps={{ style: { color: 'white' } }} />
       </ListItem>
     </List>
   );
@@ -51,12 +53,38 @@ function Navbar() {
     >
       <Container maxWidth="lg">
         <Toolbar disableGutters>
-          <CodeIcon sx={{ 
-            display: { xs: 'none', md: 'flex' }, 
-            mr: 1, 
-            color: 'var(--primary-color)',
-            fontSize: '2rem'
-          }} />
+          <Box
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              mr: 1,
+              position: 'relative',
+              width: '2rem',
+              height: '2rem',
+            }}
+          >
+            <TerminalIcon
+              sx={{
+                position: 'absolute',
+                color: scrolled ? 'var(--primary-color)' : '#42E2BB',
+                fontSize: '2rem',
+                transform: 'rotate(0deg)',
+                transition: 'transform 0.3s',
+                '&:hover': {
+                  transform: 'rotate(5deg)',
+                },
+              }}
+            />
+            <DeveloperModeIcon
+              sx={{
+                position: 'absolute',
+                color: scrolled ? 'var(--primary-color)' : '#42E2BB',
+                fontSize: '1.2rem',
+                right: '-5px',
+                bottom: '-5px',
+                opacity: 0.8,
+              }}
+            />
+          </Box>
           <Typography
             variant="h6"
             noWrap
@@ -68,39 +96,106 @@ function Navbar() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'var(--text-primary)',
+              color: scrolled ? 'var(--text-primary)' : 'white',
               textDecoration: 'none',
+              transition: 'color 0.3s ease'
             }}
           >
-            PYTHON<span className="gradient-text">SERVICES</span>
+            Compile<span className="gradient-text"></span>
           </Typography>
+
+          <Box
+            sx={{
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              alignItems: 'center',
+            }}
+          >
+            <Box
+              sx={{
+                position: 'relative',
+                width: '1.8rem',
+                height: '1.8rem',
+                mr: 1,
+              }}
+            >
+              <TerminalIcon
+                sx={{
+                  position: 'absolute',
+                  color: scrolled ? 'var(--primary-color)' : '#42E2BB',
+                  fontSize: '1.8rem',
+                }}
+              />
+              <DeveloperModeIcon
+                sx={{
+                  position: 'absolute',
+                  color: scrolled ? 'var(--primary-color)' : '#42E2BB',
+                  fontSize: '1rem',
+                  right: '-5px',
+                  bottom: '-5px',
+                  opacity: 0.8,
+                }}
+              />
+            </Box>
+            <Typography
+              variant="h6"
+              noWrap
+              component={RouterLink}
+              to="/"
+              sx={{
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.2rem',
+                color: scrolled ? 'var(--text-primary)' : 'white',
+                textDecoration: 'none',
+              }}
+            >
+              Compile
+            </Typography>
+          </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
             <Button
               component={RouterLink}
               to="/"
-              sx={{ color: 'var(--text-primary)', mx: 1 }}
+              sx={{ 
+                color: scrolled ? 'var(--text-primary)' : 'white', 
+                mx: 1,
+                transition: 'color 0.3s ease'
+              }}
             >
               Home
             </Button>
             <Button
               component={RouterLink}
               to="/services"
-              sx={{ color: 'var(--text-primary)', mx: 1 }}
+              sx={{ 
+                color: scrolled ? 'var(--text-primary)' : 'white', 
+                mx: 1,
+                transition: 'color 0.3s ease'
+              }}
             >
               Serviços
             </Button>
             <Button
               component={RouterLink}
               to="/about"
-              sx={{ color: 'var(--text-primary)', mx: 1 }}
+              sx={{ 
+                color: scrolled ? 'var(--text-primary)' : 'white', 
+                mx: 1,
+                transition: 'color 0.3s ease'
+              }}
             >
-              Sobre Python
+              Tecnologias
             </Button>
             <Button
               component={RouterLink}
               to="/plans"
-              sx={{ color: 'var(--text-primary)', mx: 1 }}
+              sx={{ 
+                color: scrolled ? 'var(--text-primary)' : 'white', 
+                mx: 1,
+                transition: 'color 0.3s ease'
+              }}
             >
               Planos
             </Button>
@@ -111,6 +206,7 @@ function Navbar() {
               sx={{
                 ml: 2,
                 background: 'var(--primary-color)',
+                color: 'black',
                 '&:hover': {
                   background: 'var(--primary-dark)',
                 }
@@ -125,7 +221,11 @@ function Navbar() {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ display: { md: 'none' } }}
+            sx={{ 
+              color: scrolled ? 'var(--text-primary)' : 'white',
+              display: { xs: 'flex', md: 'none' },
+              ml: 'auto' 
+            }}
           >
             <MenuIcon />
           </IconButton>
